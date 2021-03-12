@@ -1,4 +1,5 @@
 import threading
+import time
 
 from lib_car import myLenkServo
 from lib_i2c_handle import I2C_Handle
