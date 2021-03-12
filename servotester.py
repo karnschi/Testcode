@@ -59,10 +59,10 @@ def testRun():
             if minAngle > 100 or maxAngle > 100:
                 break
 
-            if minAngle < 3:
-                minAngle = 3
-            if maxAngle > 15:
-                maxAngle = 15
+            if minAngle < 1.0:
+                minAngle = 1.0
+            if maxAngle > 16.0:
+                maxAngle = 16.0
         angle = 1000
         bus.end()
 
