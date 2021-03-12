@@ -35,7 +35,7 @@ def twistingThread(servo):#, minAngle, maxAngle):
                 position -= step
         servo.setServoPosition(0)
         return
-    except:
+    except KeyboardInterrupt:
         print("something failed")
     return
 
