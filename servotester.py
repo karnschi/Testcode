@@ -49,7 +49,7 @@ def twistingThread(servo):#, minAngle, maxAngle):
 def testRun():
     bus = I2C_Handle()
     pwm = PWM_Modul(60, bus)
-    servo1 = myLenkServo(pwm, port = 0)
+    servo = myLenkServo(pwm, port = 0)
 
     #twister1 = threading.Thread(target=twistingThread, args=[servo1])#, 3, 15])
     #twister1.start()
@@ -77,7 +77,7 @@ def testRun():
 
             while(turning):
                 if t:
-                    twister1 = threading.Thread(target=twistingThread, args=[servo1])  # , 3, 15])
+                    twister1 = threading.Thread(target=twistingThread, args=[servo])  # , 3, 15])
                     twister1.start()
                     t = False
 
