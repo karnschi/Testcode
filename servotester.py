@@ -23,17 +23,17 @@ def twistingThread(servo):#, minAngle, maxAngle):
             steps = 2
             turningtime = 1
             timestep = turningtime / steps
-            step = (maxA - minA) / steps + 0.1
+            step = (maxA - minA) / steps
 
             servo.setServoPosition(minAngle)
             for i in range(steps):
                 time.sleep(timestep)
-                position = position + (maxA - minA) / steps
+                position = position + step
                 servo.setServoPosition(position)
 
             for i in range(steps):
                 time.sleep(timestep)
-                position = position - (maxA - minA) / steps
+                position = position - step
                 servo.setServoPosition(position)
 
 
