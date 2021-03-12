@@ -5,12 +5,15 @@ from lib_car import myLenkServo
 from lib_i2c_handle import I2C_Handle
 from lib_pwm import PWM_Modul
 
-global angle = 0
-global minAngle = float(2)
-global maxAngle = float(5)
+angle = 0
+minAngle = float(2)
+maxAngle = float(5)
 
 def twistingThread(servo):#, minAngle, maxAngle):
     try:
+        global angle
+        global minAngle
+        global maxAngle
         position = 3
         print(str(minAngle) + "  " + str(maxAngle))
         while(angle < 1000):
@@ -45,8 +48,9 @@ def testRun():
     twister = threading.Thread(target=twistingThread, args=[servo])#, 3, 15])
     twister.start()
 
-    minAngle = 0
-    maxAngle = 0
+    global angle
+    global minAngle
+    global maxAngle
     try:
         while(True):
             minAngle = float(input(str(minAngle) + " und neues Minimum: "))
