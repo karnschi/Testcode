@@ -89,8 +89,9 @@ class myLenkServo:
         self.setServoPosition()
         return
     
-    def setServoPosition(self, position):
-        self.position = position
+    def setServoPosition(self, position = 1000):
+        if position != 1000:
+            self.position = position
         self.pwmmodul.set_pwm(self.port, self.position)
         return
     
