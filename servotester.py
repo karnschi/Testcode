@@ -16,7 +16,7 @@ def twistingThread(servo, minAngle, maxAngle):
             minA = minAngle
             maxA = maxAngle
             steps = 30
-            timestep = 1 / steps
+            timestep = 1.5 / steps
             step = (maxA - minA) / steps
 
             while(position < maxA):
