@@ -30,7 +30,7 @@ def twistingThread(servo, minAngle, maxAngle):
                 position -= step
         servo.setServoPosition(0)
         return
-    except KeyboardInterrupt:
+    except:
         print("something failed")
     return
 
@@ -59,6 +59,7 @@ def testRun():
         bus.end()
 
     except:
+        print("EPIC FAIL")
         angle = 1000
         bus.end()
 
