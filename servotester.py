@@ -45,8 +45,8 @@ def testRun():
 
     try:
         while(True):
-            minAngle = input(minAngle + " und neues Minimum: ")
-            maxAngle = input(maxAngle + " und neues Maximum: ")
+            minAngle = input(str(minAngle) + " und neues Minimum: ")
+            maxAngle = input(str(maxAngle) + " und neues Maximum: ")
 
             if minAngle > 100 or maxAngle > 100:
                 break
@@ -58,7 +58,7 @@ def testRun():
         angle = 1000
         bus.end()
 
-    except:
+    except KeyboardInterrupt:
         print("EPIC FAIL")
         angle = 1000
         bus.end()
