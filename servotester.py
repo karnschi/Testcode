@@ -6,8 +6,8 @@ from lib_i2c_handle import I2C_Handle
 from lib_pwm import PWM_Modul
 
 angle = 0
-minAngle = float(2)
-maxAngle = float(5)
+minAngle = float(7)
+maxAngle = float(9)
 
 def twistingThread(servo):#, minAngle, maxAngle):
     try:
@@ -20,8 +20,8 @@ def twistingThread(servo):#, minAngle, maxAngle):
             minA = minAngle
             maxA = maxAngle
 
-            steps = 30
-            timestep = 1.5 / steps
+            steps = 60
+            timestep = 1 / steps
             step = (maxA - minA) / steps
 
             while(position < maxA):
