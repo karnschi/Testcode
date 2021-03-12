@@ -72,6 +72,7 @@ def testRun():
                     t = True
                     manual = False
                 if position > 500:
+                    manual = False
                     break
                 servo.setServoPosition(position)
 
@@ -89,6 +90,7 @@ def testRun():
                     turning = False
 
                 if minAngle > 500 or maxAngle > 500:
+                    turning = False
                     break
 
                 if minAngle < 1.0:
