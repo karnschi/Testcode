@@ -42,11 +42,20 @@ def twistingThread(servo):#, minAngle, maxAngle):
 
 def testRun():
     bus = I2C_Handle()
-    pwm = PWM_Modul(55, bus)
-    servo = myLenkServo(pwm)
+    pwm = PWM_Modul(60, bus)
+    servo1 = myLenkServo(pwm, port = 0)
+    servo2 = myLenkServo(pwm, port = 1)
+    servo3 = myLenkServo(pwm, port = 2)
+    servo4 = myLenkServo(pwm, port = 3)
 
-    twister = threading.Thread(target=twistingThread, args=[servo])#, 3, 15])
-    twister.start()
+    twister1 = threading.Thread(target=twistingThread, args=[servo1])#, 3, 15])
+    twister1.start()
+    twister2 = threading.Thread(target=twistingThread, args=[servo2])  # , 3, 15])
+    twister2.start()
+    twister3 = threading.Thread(target=twistingThread, args=[servo3])  # , 3, 15])
+    twister3.start()
+    twister4 = threading.Thread(target=twistingThread, args=[servo4])  # , 3, 15])
+    twister4.start()
 
     global angle
     global minAngle
