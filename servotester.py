@@ -20,7 +20,7 @@ def twistingThread(servo):#, minAngle, maxAngle):
             minA = minAngle
             maxA = maxAngle
 
-            steps = 60
+            steps = 4
             timestep = 1 / steps
             step = (maxA - minA) / steps
 
