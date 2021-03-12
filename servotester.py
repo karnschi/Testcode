@@ -14,7 +14,7 @@ def twistingThread(servo):#, minAngle, maxAngle):
         global angle
         global minAngle
         global maxAngle
-        position = 3
+        position = minAngle
         print(str(minAngle) + "  " + str(maxAngle))
         while(angle < 1000):
             minA = minAngle
@@ -23,17 +23,20 @@ def twistingThread(servo):#, minAngle, maxAngle):
             steps = 2
             turningtime = 1
             timestep = turningtime / steps
-            step = (maxA - minA) / steps
+            step = (maxA - minA) / steps + 0.1
 
-            while(position < maxA):
-                servo.setServoPosition(position)
+            servo.setServoPosition(minAngle)
+            for i in range(steps):
                 time.sleep(timestep)
-                position += step
+                position = position + (maxA - minA) / steps
+                servo.setServoPosition(position)
 
-            while (position > minA):
-                servo.setServoPosition(position)
+            for i in range(steps):
                 time.sleep(timestep)
-                position -= step
+                position = position - (maxA - minA) / steps
+                servo.setServoPosition(position)
+
+
         servo.setServoPosition(0)
         return
     except KeyboardInterrupt:
