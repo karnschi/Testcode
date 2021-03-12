@@ -49,15 +49,24 @@ def testRun():
     pwm = PWM_Modul(60, bus)
     servo1 = myLenkServo(pwm, port = 0)
 
-    twister1 = threading.Thread(target=twistingThread, args=[servo1])#, 3, 15])
-    twister1.start()
+    #twister1 = threading.Thread(target=twistingThread, args=[servo1])#, 3, 15])
+    #twister1.start()
 
 
     global angle
     global minAngle
     global maxAngle
+    turning = False
+    manual = True
+    position = 8
     try:
-        while(True):
+        while(manual):
+            position = float(input("Neuer Wert: "))
+            if position > 500:
+                break
+            servo.setServoPosition(position)
+
+        while(turning):
             minAngle = float(input(str(minAngle) + " und neues Minimum: "))
             maxAngle = float(input(str(maxAngle) + " und neues Maximum: "))
 
