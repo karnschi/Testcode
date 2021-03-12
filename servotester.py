@@ -43,6 +43,8 @@ def testRun():
     twister = threading.Thread(target=twistingThread, args=[servo, 3, 15])
     twister.start()
 
+    minAngle = 0
+    maxAngle = 0
     try:
         while(True):
             minAngle = input(str(minAngle) + " und neues Minimum: ")
