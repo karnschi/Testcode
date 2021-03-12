@@ -7,15 +7,16 @@ from lib_pwm import PWM_Modul
 
 angle = 0
 minAngle = float(0)
-maxAngle = float(0)
+maxAngle = float(5)
 
 def twistingThread(servo):#, minAngle, maxAngle):
     try:
-        position = 0
+        position = 3
+        print(str(minAngle) + "  " + str(maxAngle))
         while(angle < 1000):
             minA = minAngle
             maxA = maxAngle
-            print(str(minA) + "  " + str(maxA))
+
             steps = 30
             timestep = 1.5 / steps
             step = (maxA - minA) / steps
