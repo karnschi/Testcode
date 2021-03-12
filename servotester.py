@@ -47,8 +47,8 @@ def testRun():
     maxAngle = 0
     try:
         while(True):
-            minAngle = input(str(minAngle) + " und neues Minimum: ")
-            maxAngle = input(str(maxAngle) + " und neues Maximum: ")
+            minAngle = float(input(str(minAngle) + " und neues Minimum: "))
+            maxAngle = float(input(str(maxAngle) + " und neues Maximum: "))
 
             if minAngle > 100 or maxAngle > 100:
                 break
