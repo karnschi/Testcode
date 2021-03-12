@@ -15,11 +15,11 @@ def twistingThread(servo, minAngle, maxAngle):
         while(angle < 1000):
             minA = minAngle
             maxA = maxAngle
-            step = (maxA - minA) / 10
+            step = (maxA - minA) / 30
 
             while(position < maxA):
                 servo.setServoPosition(position)
-                time.sleep(0.1)
+                time.sleep(0.05)
                 position += step
 
             while (position > minA):
@@ -38,7 +38,7 @@ def testRun():
     pwm = PWM_Modul(60, bus)
     servo = myLenkServo(pwm)
 
-    twister = threading.Thread(target=twistingThread, args=[servo, 6, 10])
+    twister = threading.Thread(target=twistingThread, args=[servo, 3, 15])
     twister.start()
 
     try:
@@ -49,10 +49,10 @@ def testRun():
             if minAngle > 100 or maxAngle > 100:
                 break
 
-            if minAngle < -90:
-                minAngle = -90
-            if maxAngle > 90:
-                maxAngle = 90
+            if minAngle < 3:
+                minAngle = 3
+            if maxAngle > 15:
+                maxAngle = 15
         angle = 1000
         bus.end()
 
