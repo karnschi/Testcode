@@ -36,7 +36,7 @@ def testRun():
     pwm = PWM_Modul(60, bus)
     servo = myLenkServo(pwm)
 
-    twister = threading.Thread(target=twistingThread, args=[servo, 1, 3])
+    twister = threading.Thread(target=twistingThread, args=[servo, 6, 10])
     twister.start()
 
     try:
