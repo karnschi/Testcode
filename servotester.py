@@ -9,7 +9,7 @@ angle = 0
 minAngle = float(0)
 maxAngle = float(0)
 
-def twistingThread(servo, minAngle, maxAngle):
+def twistingThread(servo):#, minAngle, maxAngle):
     try:
         position = 0
         while(angle < 1000):
