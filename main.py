@@ -1,9 +1,9 @@
-from servotester import testRun
+import servotester
 
 
 if __name__ == '__main__':
     try:
-        testRun()
+        servotester.testRun()
     except:
         print("Shut down")
 
