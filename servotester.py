@@ -28,7 +28,7 @@ def twistingThread(servo, minAngle, maxAngle):
         servo.setServoPosition(0)
     #except:
     #    print("something failed")
-    return
+        return
 
 
 def testRun():
