@@ -86,7 +86,7 @@ class PWM_Modul:
     
     def set_pwm(self, channel, dutycycle):    # Dutycycle muss in Prozent (0-100) angegeben werden
         dc = math.floor(dutycycle * 4096 / 100 + 0.5)   # Umrechnung des Dutycycle von Prozent in einen geeigneten Bitwert mit 12Bit Basis
-        ch_lsb = CH0_OFF_LSB + 4 * channel    # Erstellung der eizelnen Byte die in die Register geschrieben werden muessen
+        ch_lsb = CH0_OFF_LSB + 4 * channel    # Erstellung der einzelnen Bytes die in die Register geschrieben werden muessen
         ch_msb = CH0_OFF_MSB + 4 * channel
         
         dc_lsb = dc & 0xFF
