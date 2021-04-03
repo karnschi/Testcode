@@ -183,8 +183,7 @@ class Gyro_Modul:
                 # time.sleep(0.05)
         return
 
-def gyrotester(bus):
-    gyro = Gyro_Modul(bus)
+def gyrotester(gyro):
     (x, y, z) = gyro.get_acc()
     (ro, pi, ya) = gyro.get_gyro()
     g = math.sqrt(x ** 2 + y ** 2 + z ** 2)
