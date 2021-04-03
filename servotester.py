@@ -46,8 +46,7 @@ def twistingThread(servo):#, minAngle, maxAngle):
     return
 
 
-def testRun():
-    bus = I2C_Handle()
+def testRun(bus=I2C_Handle()):
     pwm = PWM_Modul(60, bus)
     servo = myLenkServo(pwm, port = 0)
 
