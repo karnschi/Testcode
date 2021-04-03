@@ -10,7 +10,7 @@ if __name__ == '__main__':
         bus = I2C_Handle()
         #servotester.testRun(bus)
 
-        gyrotester(gyro)
+        gyrotester(bus)
 
         bus.end()
 
