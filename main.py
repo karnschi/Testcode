@@ -9,7 +9,7 @@ if __name__ == '__main__':
     try:
         bus = I2C_Handle()
         #servotester.testRun(bus)
-        for(range(100)):
+        for i in range(100):
             gyrotester()
 
     except KeyboardInterrupt:
