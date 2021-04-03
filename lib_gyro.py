@@ -195,7 +195,7 @@ def gyrotester(bus):
         (x, y, z) = (x/g, y/g, z/g)
         g = math.sqrt(x ** 2 + y ** 2 + z ** 2)
 
-        (ro, pi, ya) = (ro/math.pi, pi/math.pi, ya/math.pi)
+        (ro, pi, ya) = (ro/math.pi*360, pi/math.pi*360, ya/math.pi*360)
 
         print("Acc: %4.2f,   \t %4.2f,   \t %4.2f,   \t %4.2f \t Gyro: %4.2f,   \t %4.2f,   \t %4.2f \t Temp: %4.2f" % (
         x, y, z, g, ro, pi, ya, t))
