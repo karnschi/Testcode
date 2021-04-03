@@ -2,7 +2,7 @@ import threading
 import time
 
 from lib_car import myLenkServo
-#from lib_i2c_handle import I2C_Handle
+from lib_i2c_handle import I2C_Handle
 from lib_pwm import PWM_Modul
 
 angle = 0
@@ -46,7 +46,7 @@ def twistingThread(servo):#, minAngle, maxAngle):
     return
 
 
-def testRun(bus=I2C_Handle()):
+def testRun(bus):
     pwm = PWM_Modul(60, bus)
     servo = myLenkServo(pwm, port = 0)
 
@@ -97,10 +97,10 @@ def testRun(bus=I2C_Handle()):
                 if maxAngle > 16.0:
                     maxAngle = 16.0
         angle = 1000
-        bus.end()
+        #bus.end()
 
     except KeyboardInterrupt:
         print("EPIC FAIL")
         angle = 1000
-        bus.end()
+        #bus.end()
 
