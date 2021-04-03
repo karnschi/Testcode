@@ -9,9 +9,9 @@ import servotester
 if __name__ == '__main__':
     try:
         bus = I2C_Handle()
-        servotester.testRun(bus)
+        #servotester.testRun(bus)
 
-        #gyrotester(bus)
+        gyrotester(bus)
 
         bus.end()
 
