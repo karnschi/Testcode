@@ -194,5 +194,5 @@ def gyrotester(bus):
         t = gyro.get_temp()
         print("Acc: %4.2f,   \t %4.2f,   \t %4.2f,   \t %4.2f \t Gyro: %4.2f,   \t %4.2f,   \t %4.2f \t Temp: %4.2f" % (
         x, y, z, g, ro, pi, ya, t))
-        time.sleep(0.25)
+        time.sleep(0.1)
 
