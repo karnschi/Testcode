@@ -190,7 +190,7 @@ def gyrotester(bus):
         (ro, pi, ya) = gyro.get_gyro()
         t = gyro.get_temp()
 
-        g = math.sqrt(x ** 2 + y ** 2 + z ** 2)/8.91
+        g = math.sqrt(x ** 2 + y ** 2 + z ** 2)
 
         (x, y, z) = (x/g, y/g, z/g)
         g = math.sqrt(x ** 2 + y ** 2 + z ** 2)
