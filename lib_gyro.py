@@ -190,12 +190,10 @@ def gyrotester(bus):
         (ro, pi, ya) = gyro.get_gyro()
         t = gyro.get_temp()
 
-        g = math.sqrt(x ** 2 + y ** 2 + z ** 2)
+        g = math.sqrt(x ** 2 + y ** 2 + z ** 2)/8.91
 
         (x, y, z) = (x/g, y/g, z/g)
         g = math.sqrt(x ** 2 + y ** 2 + z ** 2)
-
-        (ro, pi, ya) = (ro/math.pi*360, pi/math.pi*360, ya/math.pi*360)
 
         print("Acc: %4.2f,   \t %4.2f,   \t %4.2f,   \t %4.2f \t Gyro: %4.2f,   \t %4.2f,   \t %4.2f \t Temp: %4.2f" % (
         x, y, z, g, ro, pi, ya, t))
