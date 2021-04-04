@@ -94,11 +94,11 @@ class I2C_Handle:
                     reg = message[2]
                     failed = 1000
                     while(failed > 0):
+                        bus.write_byte_data(add, reg)
                         try:
                             bus.write_byte_data(add, reg)
                             failed = 0
                         except:
-                            print("x")
                             failed -= 1
                 elif message_type == "r":
                     add = message[1]
