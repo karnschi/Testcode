@@ -16,7 +16,7 @@ def gyroServo(bus):
 if __name__ == '__main__':
     try:
         bus = I2C_Handle()
-        print(bus.read_byte(0x70))
+        print(bus.read_byte(0x70, 0x75))
         print(bus.read_byte(0x35))
         bus.send_byte(0x35, 0x04)
         print(bus.read_byte(0x35))
