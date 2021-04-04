@@ -115,6 +115,7 @@ class I2C_Handle:
                 elif message_type == "r+":
                     add = message[1]
                     failed = 1000
+                    data = bus.read_byte_data(add)
                     while (failed > 0):
                         try:
                             data = bus.read_byte_data(add)
