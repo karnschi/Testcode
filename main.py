@@ -17,7 +17,7 @@ if __name__ == '__main__':
     try:
         bus = I2C_Handle()
         print(bus.read_byte(0x74))
-        bus.send_byte(0x75, 0x01)
+        bus.send_byte(0x75, 0x04)
         print(bus.read_byte(0x75))
         #servotester.testRun(bus)
 
