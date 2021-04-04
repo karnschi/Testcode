@@ -185,7 +185,7 @@ class Gyro_Modul:
 
 def gyrotester(bus):
     gyro = Gyro_Modul(bus)
-    for i in range(100):
+    for i in range(10):
         (x, y, z) = gyro.get_acc()
         (ro, pi, ya) = gyro.get_gyro()
         t = gyro.get_temp()
