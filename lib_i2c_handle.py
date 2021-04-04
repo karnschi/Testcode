@@ -44,7 +44,7 @@ class I2C_Handle:
 #        return
     
     def send_byte(self, add, reg, data="NO"):                        # Methode, die von anderen aufgerufen werden kann um ein Byte zu senden
-        if add is not "NO":
+        if data is not "NO":
             self.process_queue.put(("w", add, reg, data))
         else:
             self.process_queue.put(("w+", add, reg))
@@ -52,7 +52,7 @@ class I2C_Handle:
         return
             
     def read_byte(self, add, reg="NO"):                              # Methode, die von anderen aufgerufen werden kann um ein Byte zu empfangen
-        if add is not "NO":
+        if reg is not "NO":
             self.process_queue.put(("r", add, reg))
         else:
             self.process_queue.put(("r+", add))
