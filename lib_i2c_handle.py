@@ -84,6 +84,7 @@ class I2C_Handle:
                     data = message[3]
                     failed = 1000
                     while(failed > 0):
+                        bus.write_byte_data(add, reg, data)
                         try:
                             bus.write_byte_data(add, reg, data)
                             failed = 0
