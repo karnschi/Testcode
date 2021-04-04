@@ -43,13 +43,19 @@ class I2C_Handle:
 #        I2C_Handle.__count -= 0
 #        return
     
-    def send_byte(self, add, reg, data):                        # Methode, die von anderen aufgerufen werden kann um ein Byte zu senden
-        self.process_queue.put(("w", add, reg, data))
+    def send_byte(self, add, reg, data="NO"):                        # Methode, die von anderen aufgerufen werden kann um ein Byte zu senden
+        if add is not "NO":
+            self.process_queue.put(("w", add, reg, data))
+        else:
+            self.process_queue.put(("w+", add, reg))
         self.process_queue.join()
         return
             
-    def read_byte(self, add, reg):                              # Methode, die von anderen aufgerufen werden kann um ein Byte zu empfangen
-        self.process_queue.put(("r", add, reg))
+    def read_byte(self, add, reg="NO"):                              # Methode, die von anderen aufgerufen werden kann um ein Byte zu empfangen
+        if add is not "NO":
+            self.process_queue.put(("r", add, reg))
+        else:
+            self.process_queue.put(("r+", add))
         self.process_queue.join()
         while True:
             data = self.process_antwort.get()
@@ -70,9 +76,9 @@ class I2C_Handle:
                 return
             if message:
                 message_type = message[0]
-                add = message[1]
-                reg = message[2]
                 if message_type == "w":
+                    add = message[1]
+                    reg = message[2]
                     data = message[3]
                     failed = 1000
                     while(failed > 0):
@@ -81,11 +87,34 @@ class I2C_Handle:
                             failed = 0
                         except:
                             failed -= 1
-                else:
+                elif message_type == "w+":
+                    add = message[1]
+                    reg = message[2]
+                    failed = 1000
+                    while(failed > 0):
+                        try:
+                            bus.write_byte_data(add, reg)
+                            failed = 0
+                        except:
+                            failed -= 1
+                elif message_type == "r":
+                    add = message[1]
+                    reg = message[2]
                     failed = 1000
                     while(failed > 0):
                         try:
                             data = bus.read_byte_data(add, reg)
+                            failed = 0
+                        except:
+                            failed -= 1
+                            data = 0x00
+                    process_antwort.put(data)
+                elif message_type == "r+":
+                    add = message[1]
+                    failed = 1000
+                    while (failed > 0):
+                        try:
+                            data = bus.read_byte_data(add)
                             failed = 0
                         except:
                             failed -= 1

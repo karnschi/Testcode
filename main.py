@@ -5,10 +5,18 @@ import lib_i2c_handle
 from lib_i2c_handle import I2C_Handle
 from lib_gyro import *
 import servotester
+from lib_car import myLenkServo
+from lib_i2c_handle import I2C_Handle
+from lib_pwm import PWM_Modul
+
+def gyroServo(bus):
+    gyro = Gyro_Modul(bus)
+
 
 if __name__ == '__main__':
     try:
         bus = I2C_Handle()
+        bus.send_byte(0x75, 0x01)
         #servotester.testRun(bus)
 
         gyrotester(bus)

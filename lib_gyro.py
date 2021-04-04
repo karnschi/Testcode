@@ -44,16 +44,16 @@ GYRO_ZOUT_L = 0x48
 class Gyro_Modul:
     __count = 0  # Verhindert, dass mehr als eine Instanz erstellt wird
 
-    def __init__(self, bus):  # Initialisierung
+    def __init__(self, bus, address=ADDRESS):  # Initialisierung
         if Gyro_Modul.__count > 1:
             print("Maximale Anzahl an Gyro Modulen wurden bereits initialisiert")
             return
 
         print("\tInitialisiere Gyro- und Beschleunigungs-Modul...")
         if Gyro_Modul.__count == 0:  # Zuweisung der Adresse am i2c Bus je nachdem wieviele Instanzen von diesem Modul bereits existieren
-            self.address = ADDRESS
+            self.address = address
         else:
-            self.address = ADDRESS + 1
+            self.address = address + 1
 
         Gyro_Modul.__count += 1
 
@@ -198,4 +198,5 @@ def gyrotester(bus):
         print("Acc: %4.2f,   \t %4.2f,   \t %4.2f,   \t %4.2f \t Gyro: %4.2f,   \t %4.2f,   \t %4.2f \t Temp: %4.2f" % (
         x, y, z, g, ro, pi, ya, t))
         time.sleep(0.1)
+
 
