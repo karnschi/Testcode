@@ -114,13 +114,12 @@ class I2C_Handle:
                     process_antwort.put(data)
                 elif message_type == "r+":
                     add = message[1]
-                    failed = 1
+                    failed = 1000
                     while (failed > 0):
                         try:
                             data = bus.read_byte_data(add)
                             failed = 0
                         except:
-                            print("y" + str(add))
                             failed -= 1
                             data = 0x00
                     process_antwort.put(data)
