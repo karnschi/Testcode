@@ -56,6 +56,7 @@ class I2C_Handle:
             self.process_queue.put(("r", add, reg))
         else:
             self.process_queue.put(("r+", add))
+            print("r+")
         self.process_queue.join()
         while True:
             data = self.process_antwort.get()
