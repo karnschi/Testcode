@@ -18,7 +18,7 @@ if __name__ == '__main__':
         bus = I2C_Handle()
         print(bus.read_byte(0x70, 0x75))
         print(bus.read_byte(0x75, 0x00))
-        bus.send_byte(0x75, 0x01)
+        bus.send_byte(0x75, 0x01, 0x00)
         print(bus.read_byte(0x75, 0x00))
         for i in range(112,120):
             print(i)
