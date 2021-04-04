@@ -22,7 +22,7 @@ if __name__ == '__main__':
         print(bus.read_byte(0x75))
         for i in range(112,120):
             print(i)
-            print(bus.read_byte(0x75))
+            print(bus.read_byte(i))
         #servotester.testRun(bus)
 
         gyrotester(bus)
