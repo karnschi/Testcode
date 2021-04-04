@@ -98,6 +98,7 @@ class I2C_Handle:
                             bus.write_byte_data(add, reg)
                             failed = 0
                         except:
+                            print("x")
                             failed -= 1
                 elif message_type == "r":
                     add = message[1]
@@ -119,6 +120,7 @@ class I2C_Handle:
                             data = bus.read_byte_data(add)
                             failed = 0
                         except:
+                            print("y")
                             failed -= 1
                             data = 0x00
                     process_antwort.put(data)
