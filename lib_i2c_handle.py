@@ -120,7 +120,7 @@ class I2C_Handle:
                             data = bus.read_byte_data(add)
                             failed = 0
                         except:
-                            print("y")
+                            print("y" + str(add))
                             failed -= 1
                             data = 0x00
                     process_antwort.put(data)
