@@ -21,9 +21,9 @@ class VL53L0X:
         time.sleep(0.01)
         self.xshut_on()
 
-        print(self.bus.read_byte(self.address, 0xC0))
-        print(self.bus.read_byte(self.address, 0xC1))
-        print(self.bus.read_byte(self.address, 0xC2))
+        print(self.bus.read_byte(self.address, 0xC0) == 0xEE)
+        print(self.bus.read_byte(self.address, 0xC1) == 0xAA)
+        print(self.bus.read_byte(self.address, 0xC2) == 0x10)
         return
 
     def xshut_on(self):
