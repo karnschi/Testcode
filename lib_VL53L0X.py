@@ -16,8 +16,8 @@ class VL53L0X:
         self.bus = bus
         self.address = ADDRESS_TOF
         GPIO.setmode(GPIO.BCM)
-        GPIO.setup(self.GPIO1_Pin, GPIO.OUT)
-        GPIO.setup(self.XSHUT_Pin, GPIO.IN)
+        GPIO.setup(self.GPIO1_Pin, GPIO.IN)
+        GPIO.setup(self.XSHUT_Pin, GPIO.OUT)
         time.sleep(0.01)
         self.xshut_on()
 
