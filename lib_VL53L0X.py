@@ -18,6 +18,7 @@ class VL53L0X:
         GPIO.setmode(GPIO.BCM)
         GPIO.setup(self.GPIO1_Pin, GPIO.OUT)
         GPIO.setup(self.XSHUT_Pin, GPIO.IN)
+        time.sleep(0.01)
         self.xshut_on()
 
         print(self.bus.read_byte(self.address, 0xC0))
