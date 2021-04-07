@@ -33,7 +33,7 @@ class VL53L0X:
         ff = 0
         for i in range(256):
             ans = self.bus.read_byte(self.address, i)
-            if ans is not 0:
+            if ans is not 0 and ans is not 0xFF:
                 print(str(i) + ". - " + hex(i) + " :: " + hex(ans))
             else:
                 nn += 1
