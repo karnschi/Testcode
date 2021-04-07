@@ -84,7 +84,7 @@ class I2C_Handle:
                 elif message_type == "r":
                     add = message[1]
                     reg = message[2]
-                    failed = 1000
+                    failed = 1
                     while(failed > 0):
                         try:
                             data = bus.read_byte_data(add, reg)
@@ -92,6 +92,7 @@ class I2C_Handle:
                         except:
                             failed -= 1
                             data = 0x00
+                            print(hex(reg) + " failed")
                     process_antwort.put(data)
             process_queue.task_done()
         return
