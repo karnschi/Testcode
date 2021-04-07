@@ -18,7 +18,7 @@ if __name__ == '__main__':
     try:
         bus = I2C_Handle()
 
-        gyrotester(bus)
+      #  gyrotester(bus)
         distancetester(bus)
 
         bus.end()
