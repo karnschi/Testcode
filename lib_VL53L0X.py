@@ -35,7 +35,7 @@ class VL53L0X:
         for i in range(0x100):
             ans = self.bus.read_byte(self.address, i)
             if ans is not 0 and ans is not 0xFF:
-        #        print(str(i) + ". - " + hex(i) + " :: " + hex(ans))
+                print(str(i) + ". - " + hex(i) + " :: " + hex(ans))
                 if ans < 0x10:
                     ol += 1
             else:
