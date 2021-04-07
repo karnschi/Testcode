@@ -46,7 +46,7 @@ class VL53L0X:
         print(str(nn) + " 0x00")
         print(str(ff) + " 0xFF")
         print(str(ol) + " < 0x0F")
-
+        GPIO.cleanup()
         return
 
     def xshut_on(self):
