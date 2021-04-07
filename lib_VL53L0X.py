@@ -29,7 +29,8 @@ class VL53L0X:
 
         print(hex(self.bus.read_byte(self.address, 0xC0)))
 
-        print(hex(self.bus.read_byte(self.address, 0x00)))
+        for i in range(100):
+            print(str(i) + ". - " hex(self.bus.read_byte(self.address, i)))
         return
 
     def xshut_on(self):
