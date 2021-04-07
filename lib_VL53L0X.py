@@ -29,9 +29,9 @@ class VL53L0X:
 
         print(hex(self.bus.read_byte(self.address, 0xC0)))
 
-        for i in range(0xff):
+        for i in range(256):
             ans = self.bus.read_byte(self.address, i)
-            if ans not 0:
+            if ans is not 0:
                 print(str(i) + ". - " + hex(ans))
         return
 
