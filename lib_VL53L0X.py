@@ -32,7 +32,7 @@ class VL53L0X:
         for i in range(256):
             ans = self.bus.read_byte(self.address, i)
             if ans is not 0:
-                print(str(i) + ". - " + hex(ans))
+                print(str(i) + ". - " + hex(i) + " :: " + hex(ans))
         return
 
     def xshut_on(self):
