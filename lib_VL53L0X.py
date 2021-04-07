@@ -27,6 +27,8 @@ class VL53L0X:
         print(self.bus.read_byte(self.address, 0xC1) == 0xAA)
         print(self.bus.read_byte(self.address, 0xC2) == 0x10)
 
+        print(hex(self.bus.read_byte(self.address, 0xC0)))
+
         print(hex(self.bus.read_byte(self.address, 0x00)))
         return
 
